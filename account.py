@@ -47,6 +47,7 @@ class Account:
           if account.username == username:
                return account
 
+#method for testing existence of an account
     @classmethod
     def account_exist(cls,username):
       '''
@@ -61,3 +62,11 @@ class Account:
               return True
 
           return False
+
+#method for displaying all the accounts
+    @classmethod
+    def display_accounts(cls):
+      '''
+      method that returns the contact list
+      '''
+      return cls.account_list

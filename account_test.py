@@ -94,6 +94,15 @@ class TestAccount(unittest.TestCase):
         account_exists = Account.account_exist("colletemine")
         self.assertTrue(account_exists)
 
+    #seventh test- test display of the accounts
+    def test_display_all_accounts(self):
+        '''
+        method that resturns a list of all accounts saved
+        '''
+
+        self.assertEqual(Account.display_accounts(),Account.account_list)
+
+
 
 if __name__ == '__main__':
     unittest.main()
