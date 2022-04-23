@@ -31,3 +31,18 @@ class Account:
       '''
 
       Account.account_list.remove(self)
+
+# Method for finding an account
+    @classmethod
+    def find_by_username(cls, username):
+      '''
+      Method that takes in username and return an account that matches that username.
+      Args:
+          username: username to serach for 
+      Returns : 
+          Account of a person that matches the number.
+      '''
+
+      for account in cls.account_list:
+          if account.username == username:
+               return account
