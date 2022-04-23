@@ -1,4 +1,4 @@
-
+# import pyperclip
 
 class Account:
     """
@@ -70,3 +70,10 @@ class Account:
       method that returns the contact list
       '''
       return cls.account_list
+
+#method  for copying
+    # @classmethod
+    # def copy_username(cls,username):
+    #     account_found = Account.find_by_username(username)
+    #     pyperclip.copy(account_found.username)
+

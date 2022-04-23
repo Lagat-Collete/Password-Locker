@@ -1,5 +1,6 @@
 import unittest  # Importing the unnitest module
 from account import Account  # importing the account class
+# import pyperclip
 
 
 class TestAccount(unittest.TestCase):
@@ -102,6 +103,16 @@ class TestAccount(unittest.TestCase):
 
         self.assertEqual(Account.display_accounts(),Account.account_list)
 
+# #Eight test
+#     def test_copy_username(self):
+#       '''
+#       Test to confirm that we are copying the username from found account
+#       '''
+
+#       self.new_account.save_account()
+#       Account.copy_username("colletemine")
+
+#       self.assertEqual(self.new_account.username,pyperclip())
 
 
 if __name__ == '__main__':
