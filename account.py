@@ -15,3 +15,19 @@ class Account:
         self.last_name = last_name
         self.username = username
         self.password = password
+  
+# save method
+    def save_account(self):
+      '''
+      save_account method saves account object into account_list
+      '''
+
+      Account.account_list.append(self)
+
+# delete method
+    def delete_account(self):
+      '''
+      delete_account method deletes a saved account from the account_list
+      '''
+
+      Account.account_list.remove(self)
