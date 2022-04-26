@@ -1,43 +1,50 @@
 
-
-
 class Password:
-  '''
-class that generates new instances of password
-  '''
-  password_list = [] #Empty password list
+   '''
+   class that generates new instances of password
+   '''
+   def __init__(self, site, password):
+       self.site = site
+       self.password = password
 
-  def __init__(self,plot,password):
-      self.plot = plot
-      self.password = password
+   passwords_list = [] #Empty passwords list
 
-#save method
-  def save_password(self):
-
+  #save method
+   def save_site(self):
     '''
-    save_password method saves password object into password_list
+    This function save new sites and passwords
     '''
-
-    Password.password_list.append(self)
+    Password.passwords_list.append(self)
   
-#delete method
-  def delete_password(self):
+  #delete method
+   def delete_site(self):
     '''
-    delete_password method deletes a saved password from the password_list
+    delete_site method deletes a saved site from the passwords_list
     '''
-    Password.password_list.remove(self)
+    Password.passwords_list.remove(self)
 
-    #find method
-  @classmethod
-  def find_by_plot(cls,plot):
+  #find method
+   @classmethod
+   def find_by_site(cls, site_find):
     '''
-    method that takes  in plot and returns a password that matches the plot
-    Args:
-        plot:plot to search
-    Returns:
-        passord of that plot matches
+    method that a user look for password using site name
     '''
+    for sitefind in cls.passwords_list:
+      if sitefind.site == site_find:
+        return sitefind
 
-    for password in cls.password_list:
-      if password.plot == plot:
-        return password
+    #method for displaying all the passwords
+   @classmethod
+   def display_sites(cls):
+      '''
+      method that returns the site
+      '''
+      return cls.passwords_list
+
+    #check if it exist
+   @classmethod
+   def site_exist(cls, site_find):
+        for sitefind in cls.passwords_lists:
+          if sitefind.site == site_find:
+            return sitefind
+        return False

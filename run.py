@@ -12,10 +12,10 @@ def create_account(fname,lname,username,password):
     new_account = Account(fname,lname,username,password)
     return new_account
 
-  #Function for saving accounts
-def save_accounts(account):
+#Function for saving accounts
+def save_account(account):
     '''
-    Function to save account
+    Function to save an account
     '''
     account.save_account()
 
@@ -34,71 +34,69 @@ def find_account(username):
     return Account.find_by_username(username)
 
 #Function for checking if an account exists
-def exist_account(username):
+def exists_account(username):
     '''
     Function that check if an account exists with that username and return a Boolean
     ''' 
     return Account.account_exist(username)
 
 #Function for displaying all accounts
-def display_accounts():
+def display_account():
     '''
-    Function that returns all the saved contacts
+    Function that returns all the saved accounts
     '''
     return Account.display_accounts()
 
         #PASSWORD CLASS
 
 # Function Creating a password
-def create_password(plot,password):
-    passwords = Password(plot,password)
+def create_site(site,password):
+    passwords = Password(site,password)
     return passwords
 
-def save_passwords(password):
+def save_site(passwords):
     '''
     function ro save password
     '''
-    password.save_password()
+    passwords.save_site()
 
 
-def delete_password(password):
+def delete_site(passwords):
     '''
-    function for delete
+    function for deleting 
     '''
-    password.delete_password()
+    passwords.delete_site()
 
-def find_password(plot):
+def find_site(site):
     '''
     function for finding
     '''
-    return Password.find_by_plot(plot)
+    return Password.find_by_site(site)
 
-def exist_password(plot):
+def isexist_site(site):
     '''
-    Function that check if an password exists with that plot and return a Boolean
+    Function that check if an password exists with that site 
     '''
-    return Password.password_exist(plot)
+    return Password.site_exist(site)
 
-def display_passwords():
+def display_sites():
     '''
     Function that returns all the saved passwords
     '''
-    return Password.display_passwords()
-
+    return Password.display_sites()
 
 
 #calling the above Functions(Main Function)
 
 def main():
-    print('.........................................')
-    print("Hello Welcome to your account list.")
-    print(".......................................")
+    print('****************************')
+    print("Hello Welcome to Password-Locker.")
+    print("****************************")
     print('Please select an option')
     
     while True:
-        print(
-            " 1. Login \n 2. Create Account \n 3. Display Accounts \n 4. Delete \n 5. Exit")
-
+        print('.........................')
+        print(" 1. Login \n 2. Create Account \n 3. Display Accounts \n 4. Delete \n 5. Exit")
 
         option = int(input())
         if option == 1:
@@ -113,37 +111,38 @@ def main():
             while True:
               print("..................................")
               print(f"Hello {username}, Please reply with a number") 
-              print(' 1. Save new Password \n 2. Display Saved Passwords \n 3. Delete Password \n 4. Go Back')
+              print(
+                  ' 1. Save new Password \n 2. Display Saved Passwords \n 3. Delete Password \n 4. Go Back')
               login_option = int(input())
               if login_option == 1:
-                  print('New plot')
-                  print('........................................')
+                  print('New site')
+                  print('**************************************')
 
-                  print('Enter Plot Name')
-                  plot = input()
+                  print('Enter Site Name')
+                  site = input()
 
                   print('Enter Password')
                   password = input()
 
-                  save_passwords(create_password(plot,password))
+                  save_site(create_site(site, password))
               elif login_option == 2:
-                  if display_passwords():
-                      for plot in display_passwords():
-                          print(f'{plot.plot} : {plot.password}')
+                  if display_sites():
+                      for site in display_sites():
+                          print(f'{site.site} : {site.password}')
                   else:
-                      print('Sorry,No password saved for this plot')
+                      print('Sorry,No password saved for this site')
                       print('\n')
 
               elif login_option == 3:
-                  print('Please enter the plot to delete')
+                  print('Please enter the site to delete')
 
-                  plot = input()
-                  if exist_password(plot):
-                      remove_plot = (plot) 
-                      delete_password(remove_plot)
+                  site = input()
+                  if isexist_site(site):
+                      remove_site = (site) 
+                      delete_site(remove_site)
 
                   else:
-                      print(f'If{plot} not there,enter another plot')
+                      print(f'If {site} not there,enter another site')
               elif login_option == 4:
                   print('Byee....')
                   break
@@ -152,7 +151,7 @@ def main():
 
         elif option == 2:
             print('New Account')
-            print(".........................................")
+            print("******************************")
             print('Enter your First Name')
             first_name = input()
 
@@ -165,43 +164,44 @@ def main():
             print('Enter your Password')
             password = input()
 
-            save_accounts(create_account(first_name, last_name, username, password))
+            save_account(create_account(first_name, last_name, username, password))
             print('Account has been created,Thank you.')
             while True:
-                print('......................................')
+                print(
+                    '......................................')
                 print(f"Welcome  {username} ,please reply with a number")
                 print(
-                    '1. Save new Password \n 2. Display Saved Passwords \n 3. Delete Password \n 4. Go Back')
+                    ' 1. Save new Password \n 2. Display Saved Passwords \n 3. Delete Password \n 4. Go Back')
                 login_option = int(input())
                 if login_option == 1:
-                  print('New plot')
+                  print('New site')
                   print('........................................')
 
-                  print('Enter Plot Name')
-                  plot = input()
+                  print('Enter Site Name')
+                  site = input()
 
                   print('Enter Password')
                   password = input()
 
-                  save_passwords(create_password(plot,password))
+                  save_site(create_site(site,password))
                 elif login_option == 2:
-                  if display_passwords():
-                      for plot in display_passwords():
-                          print(f'{plot.plot} : {plot.password}')
+                  if display_sites():
+                      for site in display_sites():
+                          print(f'{site.site} : {site.password}')
                   else:
-                      print('Sorry,No password saved for this plot')
+                      print('Sorry,No password saved for this site')
                       print('\n')
 
                 elif login_option == 3:
-                  print('Please enter the plot to delete')
+                  print('Please enter the site to delete')
 
-                  plot = input()
-                  if exist_password(plot):
-                      remove_plot = (plot) 
-                      delete_password(remove_plot)
+                  site = input()
+                  if isexist_site(site):
+                      remove_site = (site) 
+                      delete_site(remove_site)
 
                   else:
-                      print(f'If{plot} not there,enter another plot')
+                      print(f'If {site} not there,enter another site')
                 elif login_option == 4:
                   print('Byee....')
                   break
@@ -209,8 +209,8 @@ def main():
                 print('Choose Number')
                 
         elif option == 1:
-            if display_accounts():
-                for account in display_accounts():
+            if display_account():
+                for account in display_account():
                     print(f'{account.username}')
             else:
                 print("No such Account")
@@ -218,7 +218,7 @@ def main():
         elif option == 4:
             print('Please enter the Account to delete')
             account = input()
-            if exist_account(account):
+            if isexist_site(account):
                 remove_account = (account)
                 delete_account(remove_account)
 
@@ -227,6 +227,6 @@ def main():
             break
 
 if __name__ == '__main__':
-       main()
+    main()
 
 
